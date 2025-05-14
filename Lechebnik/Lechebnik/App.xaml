@@ -1,0 +1,10 @@
+﻿<Application x:Class="Lechebnik.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Lechebnik.Converters"
+             StartupUri="Views/WelcomeWindow.xaml">
+    <Application.Resources>
+        <local:BoolToStringConverter x:Key="BoolToStringConverter"/>
+        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,22 @@
+﻿<Window x:Class="Lechebnik.Views.AddToCartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить в корзину" Height="200" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Выберите количество:" Margin="10"/>
+        <TextBox Grid.Row="1" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Margin="10"/>
+        <TextBlock Grid.Row="2" Text="{Binding MaxQuantity, StringFormat='Максимум: {0}'}" Margin="10"/>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button Content="Добавить" Command="{Binding AddToCartCommand}" Margin="0,0,10,0"/>
+            <Button Content="Отмена" Command="{Binding CancelCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

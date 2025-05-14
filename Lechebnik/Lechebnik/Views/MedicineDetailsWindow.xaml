@@ -1,0 +1,49 @@
+﻿<Window x:Class="Lechebnik.Views.MedicineDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Информация о препарате" Height="400" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="ID:" Margin="5"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Medicine.ID}" Margin="5"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Название:" Margin="5"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Medicine.Название}" Margin="5"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Требуется рецепт:" Margin="5"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Medicine.Требование_рецепта, Converter={StaticResource BoolToStringConverter}}" Margin="5"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Применение при симптомах:" Margin="5"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Medicine.Применение_при_симптомах}" Margin="5" TextWrapping="Wrap"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Способ применения:" Margin="5"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Medicine.Способ_применения}" Margin="5"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Агрегатное состояние:" Margin="5"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding Medicine.Агрегатное_состояние}" Margin="5"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Тип препарата:" Margin="5"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding Medicine.Тип_препарата}" Margin="5"/>
+
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Поставщик:" Margin="5"/>
+        <TextBlock Grid.Row="7" Grid.Column="1" Text="{Binding Medicine.Поставщик}" Margin="5"/>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Страна изготовления:" Margin="5"/>
+        <TextBlock Grid.Row="8" Grid.Column="1" Text="{Binding Medicine.Страна_изготовления}" Margin="5"/>
+    </Grid>
+</Window>

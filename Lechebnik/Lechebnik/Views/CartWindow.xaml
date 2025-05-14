@@ -1,0 +1,54 @@
+﻿<Window x:Class="Lechebnik.Views.CartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Корзина" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <local:CartViewModel xmlns:local="clr-namespace:Lechebnik.ViewModels"/>
+    </Window.DataContext>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <TextBox Width="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Поиск" Command="{Binding SearchCommand}" Margin="5,0,0,0"/>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" ItemsSource="{Binding CartItems}" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Препарат ID" Binding="{Binding Препарат_ID}"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Количество}"/>
+                <DataGridTemplateColumn Header="Детали">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Подробнее" Command="{Binding DataContext.ViewDetailsCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Изменить">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Изменить количество" Command="{Binding DataContext.ChangeQuantityCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Удалить">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Command="{Binding DataContext.RemoveItemCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" CommandParameter="{Binding}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button Content="Оформить заказ" Command="{Binding PlaceOrderCommand}" Margin="5"/>
+            <Button Content="Назад" Command="{Binding BackToMainCommand}" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
