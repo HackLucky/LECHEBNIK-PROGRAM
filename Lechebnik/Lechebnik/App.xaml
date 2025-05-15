@@ -5,6 +5,8 @@
              StartupUri="Views/WelcomeWindow.xaml">
     <Application.Resources>
         <local:BoolToStringConverter x:Key="BoolToStringConverter"/>
+        <local:UserStatusConverter x:Key="UserStatusConverter"/>
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <local:IntToStatusConverter x:Key="IntToStatusConverter"/>
     </Application.Resources>
 </Application>

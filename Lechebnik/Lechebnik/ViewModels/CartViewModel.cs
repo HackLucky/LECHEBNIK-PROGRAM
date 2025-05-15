@@ -260,9 +260,9 @@ namespace Lechebnik.ViewModels
                     {
                         // Create new order
                         string orderQuery = @"
-                            INSERT INTO Заказы (Пользователь_ID, Дата_заказа, Статус, Сумма, Пункт_выдачи_ID, Способ_оплаты)
+                            INSERT INTO Заказы (Пользователь_ID, Дата_заказа, Сумма, Пункт_выдачи_ID, Способ_оплаты)
                             OUTPUT INSERTED.ID
-                            VALUES (@UserID, @OrderDate, @Status, @Total, @PickupPointID, @PaymentMethod)";
+                            VALUES (@UserID, @OrderDate, 0, @PickupPointID, @PaymentMethod)";
                         int orderId;
                         using (var command = new SqlCommand(orderQuery, connection, transaction))
                         {
@@ -339,7 +339,6 @@ namespace Lechebnik.ViewModels
                         }
 
                         transaction.Commit();
-                        CartItems.Clear();
 
                         // Create order object for payment
                         Order order = new Order
@@ -384,6 +383,7 @@ namespace Lechebnik.ViewModels
                         Application.Current.MainWindow = paymentWindow;
                         paymentWindow.Show();
                     }
+                    CartItems.Clear();
                 }
             }
             catch (Exception ex)

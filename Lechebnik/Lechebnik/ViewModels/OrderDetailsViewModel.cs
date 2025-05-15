@@ -46,7 +46,7 @@ namespace Lechebnik.ViewModels
                 using (var connection = DatabaseHelper.GetConnection())
                 {
                     connection.Open();
-                    // Load order basic info
+                    // Загрузка подробной информации о заказе
                     string orderQuery = @"
                         SELECT o.ID, o.Пользователь_ID, o.Дата_заказа, s.Название as Статус
                         FROM Заказы o
@@ -70,7 +70,7 @@ namespace Lechebnik.ViewModels
                         }
                     }
 
-                    // Load order items
+                    // Загрузка списка заказов
                     string itemsQuery = @"
                         SELECT oi.ID, oi.Препарат_ID, oi.Количество, oi.Цена, m.Название
                         FROM Детали_заказа oi

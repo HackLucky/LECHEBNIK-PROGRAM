@@ -22,7 +22,7 @@
                         <DataGridTextColumn Header="Логин" Binding="{Binding Логин}"/>
                         <DataGridTextColumn Header="Фамилия" Binding="{Binding Фамилия}"/>
                         <DataGridTextColumn Header="Имя" Binding="{Binding Имя}"/>
-                        <DataGridTextColumn Header="Статус" Binding="{Binding Статус, Converter={StaticResource BoolToStringConverter}, ConverterParameter={StaticResource IntToStatus}}"/>
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Статус, Converter={StaticResource UserStatusConverter}}"/>
                         <DataGridTemplateColumn Header="Действия">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -42,8 +42,8 @@
                         <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                         <DataGridTextColumn Header="Пользователь ID" Binding="{Binding Пользователь_ID}"/>
                         <DataGridTextColumn Header="Дата заказа" Binding="{Binding Дата_заказа, StringFormat=dd.MM.yyyy HH:mm}"/>
-                        <DataGridTextColumn Header="Статус" Binding="{Binding Статус}"/>
-                        <DataGridTextColumn Header="Сумма" Binding="{Binding Сумма, StringFormat=C}"/>
+                        <DataGridTextColumn Header="Статус" Binding="{Binding Статус, Converter={StaticResource IntToStatusConverter}}"/>
+                        <DataGridTextColumn Header="Сумма" Binding="{Binding Цена, StringFormat={}{0:C2}, ConverterCulture=ru-RU}"/>
                         <DataGridTemplateColumn Header="Действия">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -64,7 +64,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                             <DataGridTextColumn Header="Название" Binding="{Binding Название}"/>
-                            <DataGridTextColumn Header="Цена" Binding="{Binding Цена, StringFormat=C}"/>
+                            <DataGridTextColumn Header="Цена" Binding="{Binding Цена, StringFormat={}{0:C2}, ConverterCulture=ru-RU}"/>
                             <DataGridTextColumn Header="На складе" Binding="{Binding Количество_на_складе}"/>
                         </DataGrid.Columns>
                     </DataGrid>

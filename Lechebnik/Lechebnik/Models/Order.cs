@@ -8,11 +8,11 @@ namespace Lechebnik.Models
         public int ID { get; set; }
         public int Пользователь_ID { get; set; }
         public DateTime Дата_заказа { get; set; }
-        public string Статус { get; set; } // Изменено на string
+        public string Статус { get; set; }
         public DateTime? Дата_доставки { get; set; }
         public decimal Сумма { get; set; }
         public int Пункт_выдачи_ID { get; set; }
         public string Способ_оплаты { get; set; }
-        public List<OrderItem> Items { get; set; } // Добавлено для поддержки элементов заказа
+        public List<OrderItem> Items { get; set; }
     }
 }

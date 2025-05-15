@@ -25,7 +25,7 @@
                 <DataGridTextColumn Header="Название" Binding="{Binding Название}"/>
                 <DataGridTextColumn Header="Требуется рецепт" Binding="{Binding Требование_рецепта, Converter={StaticResource BoolToStringConverter}}"/>
                 <DataGridTextColumn Header="На складе" Binding="{Binding Количество_на_складе}"/>
-                <DataGridTextColumn Header="Цена" Binding="{Binding Цена, StringFormat=C}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Цена, StringFormat={}{0:C2}, ConverterCulture=ru-RU}"/>
                 <DataGridTemplateColumn Header="Детали">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

@@ -85,6 +85,8 @@
     </Compile>
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\BoolToStringConverter.cs" />
+    <Compile Include="Converters\IntToStatusConverter.cs" />
+    <Compile Include="Converters\UserStatusConverter.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="ViewModels\AddToCartViewModel.cs" />

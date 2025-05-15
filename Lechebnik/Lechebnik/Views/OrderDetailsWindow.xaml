@@ -15,18 +15,18 @@
             <TextBlock Text=" | Дата: " FontWeight="Bold" Margin="10,0,0,0"/>
             <TextBlock Text="{Binding CurrentOrder.Дата_заказа, StringFormat=dd.MM.yyyy HH:mm}"/>
             <TextBlock Text=" | Статус: " FontWeight="Bold" Margin="10,0,0,0"/>
-            <TextBlock Text="{Binding CurrentOrder.Статус}"/>
+            <TextBlock Text="{Binding CurrentOrder.Статус, Converter={StaticResource IntToStatusConverter}}"/>
         </StackPanel>
 
         <DataGrid Grid.Row="1" ItemsSource="{Binding OrderItems}" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название" Binding="{Binding Название}" Width="*"/>
                 <DataGridTextColumn Header="Количество" Binding="{Binding Количество}" Width="100"/>
-                <DataGridTextColumn Header="Цена за единицу" Binding="{Binding Цена, StringFormat=C}" Width="120"/>
-                <DataGridTextColumn Header="Общая цена" Binding="{Binding TotalPrice, StringFormat=C}" Width="120"/>
+                <DataGridTextColumn Header="Цена за единицу" Binding="{Binding Цена, StringFormat={}{0:C2}, ConverterCulture=ru-RU}" Width="120"/>
+                <DataGridTextColumn Header="Общая цена" Binding="{Binding Цена, StringFormat={}{0:C2}, ConverterCulture=ru-RU}" Width="120"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <TextBlock Grid.Row="2" Text="{Binding TotalAmount, StringFormat=Итого: {0:C}}" FontWeight="Bold" HorizontalAlignment="Right" Margin="5"/>
+        <TextBlock Grid.Row="2" Text="{Binding TotalAmount, StringFormat=Итого: {0:C2}, ConverterCulture=ru-RU}" FontWeight="Bold" HorizontalAlignment="Right" Margin="5"/>
     </Grid>
 </Window>
